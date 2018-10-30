@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <title>Der kleine (Barbell) Racker</title>
 
@@ -16,19 +17,13 @@
             margin-top: 60px;
             font-size: 20px;
         }
-        #input { 
-          border: 1px solid #ccc;
-	        -moz-border-radius: 10px;
-	        -webkit-border-radius: 10px;
-	        border-radius: 10px;
-	        /*-moz-box-shadow: 2px 2px 3px #666;
-	        -webkit-box-shadow: 2px 2px 3px #666;
-	        box-shadow: 2px 2px 3px #666;*/
-	        font-size: 20px;
-	        padding: 4px 7px;
-	        outline: 0;
-	        -webkit-appearance: none;
-          width: 4em;
+        input {
+            font-size: 18pt;
+            text-align: center;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #cad3dc;
+            max-width: 80px;
         }
         #actualWeight { color: #ee3030};
     </style>
@@ -72,7 +67,7 @@
 
         }
     </script>
-    <input type="number" id="input" step="2.5" min="20" onchange="calculate(this.value)" /> kgs <br />
+    <input type="number" step="2.5" min="20" onchange="calculate(this.value)" /> kgs <br />
     <span id="result"></span> <span id="actualWeight"></span>
 </body>
 </html>
