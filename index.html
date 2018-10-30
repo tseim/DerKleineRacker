@@ -33,9 +33,19 @@
 
 <body>
     <script>
+        document.addEventListener('DOMContentLoaded',
+            function(){
+                var previousValue = localStorage.getItem("weight");
+                if (previousValue) {
+                    document.getElementById("weight").value = previousValue;
+                    calculate(previousValue);
+                }
+            });
 
         function calculate(val) {
             var weight = parseFloat(val);
+
+            localStorage.setItem("weight", val);
             var barWeight = 20;
             var platesAvailable = [25, 20, 15, 10, 5, 5, 2.5, 2.5, 1.25, 1.25]; // plates available for us
             var plates = []; // holds the plates need to meet the weight
@@ -67,7 +77,7 @@
 
         }
     </script>
-    <input type="number" step="2.5" min="20" onchange="calculate(this.value)" /> kgs <br />
+    <input type="number" id="weight" step="2.5" min="20" onchange="calculate(this.value)" /> kgs <br />
     <span id="result"></span> <span id="actualWeight"></span>
 </body>
 </html>
