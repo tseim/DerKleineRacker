@@ -84,7 +84,7 @@
         }
 
         function sumWeights(values) {
-            var numbers = values.split(' ').map(i => parseFloat(i.replace(',', '.')));
+            var numbers = values.split(' ').map(i => parseFloat(i.replace(',', '.'))).filter(i => !isNaN(i));
             var sum = numbers.reduce((a, b) => a + b*2, 20);
             document.getElementById("sumWeight").innerText = sum;
         }
