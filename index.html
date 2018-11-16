@@ -23,9 +23,16 @@
             padding: 5px;
             border-radius: 4px;
             border: 1px solid #cad3dc;
-            max-width: 80px;
         }
-        #actualWeight { color: #ee3030};
+        #actualWeight {
+            color: #ee3030 
+        }
+        input#weight {
+            width: 4em;
+         }
+        input#weights {
+            width: 10em;
+        }
     </style>
 
 
@@ -74,10 +81,18 @@
               document.getElementById("actualWeight").innerText = "(" + actualWeight + ")";
             else
               document.getElementById("actualWeight").innerText = "";
+        }
 
+        function sumWeights(values) {
+            var numbers = values.split(' ').map(i => parseFloat(i.replace(',', '.')));
+            var sum = numbers.reduce((a, b) => a + b*2, 20);
+            document.getElementById("sumWeight").innerText = sum;
         }
     </script>
     <input type="number" id="weight" step="2.5" min="20" onchange="calculate(this.value)" /> kgs <br />
     <span id="result"></span> <span id="actualWeight"></span>
+    <br>
+    <br>
+    <input id="weights" onchange="sumWeights(this.value)"> <span id="sumWeight"></span>
 </body>
 </html>
